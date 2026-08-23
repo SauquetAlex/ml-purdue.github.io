@@ -3,7 +3,7 @@
 // Auto-advances every 5s; also clickable via arrows and dots. Pauses on hover.
 import { Image } from "@astrojs/image/components";
 
-const modules = import.meta.glob("../carousel/*.{jpg,jpeg,png,webp}", {
+const modules = import.meta.glob("../assets/carousel/*.{jpg,jpeg,png,webp}", {
   eager: true,
   import: "default",
 });
