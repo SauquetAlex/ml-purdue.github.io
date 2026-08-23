@@ -1,8 +1,17 @@
 ---
 import "@fontsource/inter/variable.css";
+import { Image } from "@astrojs/image/components";
 import Footer from "~/components/footer.astro";
 import Header from "~/components/header.astro";
 import "~/styles/index.css";
+import bisti from "~/assets/team/bisti.jpg";
+import saloni from "~/assets/team/saloni.png";
+import alex from "~/assets/team/alex.jpg";
+import keshav from "~/assets/team/keshav.png";
+import shriya from "~/assets/team/shriya.jpg";
+import ryan from "~/assets/team/ryan.jpg";
+import caleb from "~/assets/team/caleb.png";
+import elijah from "~/assets/team/elijah.jpg";
 
 const { site } = Astro;
 const description = "ML@Purdue Website";
@@ -40,58 +49,71 @@ const logoUrl = ({ domain, invert, asset }: (typeof companies)[number]) =>
         invert ? "dark" : "light"
       }/logo?c=${BRANDFETCH_CLIENT_ID}`;
 
-type Member = { name: string; role: string; url?: string };
+type Member = {
+  name: string;
+  role: string;
+  url?: string;
+  img?: ImageMetadata;
+};
 
 const execBoard: Array<Member> = [
   {
     name: "Bisti Potdar",
     role: "President",
     url: "https://www.linkedin.com/in/bisti-potdar-0a0aa8244/",
+    img: bisti,
   },
   {
     name: "Saloni Dhawale",
     role: "Vice President",
     url: "https://www.linkedin.com/in/saloni-dhawale-0313b4316/",
+    img: saloni,
   },
   {
     name: "Alexandre Sauquet",
     role: "Director of Projects",
     url: "https://www.linkedin.com/in/alexandre-sauquet/",
+    img: alex,
   },
   {
     name: "Keshav Sreekantham",
     role: "Director of Accelerator",
     url: "https://www.linkedin.com/in/ksreekan/",
+    img: keshav,
   },
   {
     name: "Shriya Nichenametla",
     role: "Director of Marketing",
     url: "https://www.linkedin.com/in/nshriya/",
+    img: shriya,
   },
   {
     name: "Elijah Douglass",
     role: "Director of Finance",
     url: "mailto:dougl111@purdue.edu",
+    img: elijah,
   },
   {
     name: "Ryan Zhang",
-    role: "Director of Operations",
+    role: "Co-Director of Operations",
     url: "https://www.linkedin.com/in/ryan-zhang-b57424172/",
+    img: ryan,
   },
   {
-    name: "Christine Xu",
-    role: "Director of Workshops",
-    url: "https://www.linkedin.com/in/christinexu1211/",
+    name: "Caleb",
+    role: "Co-Director of Operations",
+    img: caleb,
   },
 ];
 
-const officers: Array<Member> = [
-  {
-    name: "Manav Gagvani",
-    role: "Finance Officer",
-    url: "https://www.linkedin.com/in/manav-gagvani/",
-  },
-];
+// Officers section temporarily hidden.
+// const officers: Array<Member> = [
+//   {
+//     name: "Manav Gagvani",
+//     role: "Finance Officer",
+//     url: "https://www.linkedin.com/in/manav-gagvani/",
+//   },
+// ];
 
 const initials = (name: string) =>
   name
@@ -165,7 +187,7 @@ const initials = (name: string) =>
       </div>
     </section>
 
-    <!-- Executive Board + Officers -->
+    <!-- Executive Board -->
     <section class="w-full bg-white py-20 text-black">
       <div class="mx-auto w-[90vw] max-w-6xl">
         <h2 class="font-bold text-4xl sm:text-6xl">Executive Board</h2>
@@ -178,10 +200,24 @@ const initials = (name: string) =>
                 rel="noopener"
                 class="group block"
               >
-                <div class="flex aspect-square items-center justify-center bg-black text-white transition-transform duration-200 group-hover:scale-[1.03]">
-                  <span class="font-bold text-4xl sm:text-5xl">
-                    {initials(m.name)}
-                  </span>
+                <div class="aspect-square overflow-hidden bg-black text-white transition-transform duration-200 group-hover:scale-[1.03]">
+                  {m.img ? (
+                    <Image
+                      src={m.img}
+                      alt={m.name}
+                      width={500}
+                      aspectRatio="1:1"
+                      fit="cover"
+                      position="center"
+                      class="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div class="flex h-full w-full items-center justify-center">
+                      <span class="font-bold text-4xl sm:text-5xl">
+                        {initials(m.name)}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <h3 class="mt-4 font-bold text-lg">{m.name}</h3>
                 <p class="opacity-70 text-sm">{m.role}</p>
@@ -190,6 +226,7 @@ const initials = (name: string) =>
           }
         </div>
 
+        {/* Officers section temporarily hidden.
         <h2 class="mt-20 font-bold text-4xl sm:text-6xl">Officers</h2>
         <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3">
           {
@@ -200,10 +237,24 @@ const initials = (name: string) =>
                 rel="noopener"
                 class="group block"
               >
-                <div class="flex aspect-square items-center justify-center bg-black text-white transition-transform duration-200 group-hover:scale-[1.03]">
-                  <span class="font-bold text-4xl sm:text-5xl">
-                    {initials(m.name)}
-                  </span>
+                <div class="aspect-square overflow-hidden bg-black text-white transition-transform duration-200 group-hover:scale-[1.03]">
+                  {m.img ? (
+                    <Image
+                      src={m.img}
+                      alt={m.name}
+                      width={500}
+                      aspectRatio="1:1"
+                      fit="cover"
+                      position="center"
+                      class="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div class="flex h-full w-full items-center justify-center">
+                      <span class="font-bold text-4xl sm:text-5xl">
+                        {initials(m.name)}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <h3 class="mt-4 font-bold text-lg">{m.name}</h3>
                 <p class="opacity-70 text-sm">{m.role}</p>
@@ -211,6 +262,7 @@ const initials = (name: string) =>
             ))
           }
         </div>
+        */}
       </div>
     </section>
 
