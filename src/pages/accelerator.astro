@@ -7,21 +7,25 @@ import "~/styles/index.css";
 const { site } = Astro;
 const description = "ML@Purdue Accelerator Program";
 
+const applyUrl = "https://mlpurdue.clubrecruiter.app/q/avc3uxn";
+
 const timelineItems = [
   {
-    phase: "Weeks 1–9",
-    title: "Foundations",
-    description: "Workshops and mini projects covering ML fundamentals.",
+    phase: "Phase 1",
+    title: "Theory",
+    description:
+      "Work with your mentor and mentee group to understand the ML behind your project.",
   },
   {
-    phase: "Weeks 10–13",
-    title: "Capstone",
-    description: "Build a project of your choice with your mentor group.",
+    phase: "Phase 2",
+    title: "Application",
+    description:
+      "Apply that theory to build something that solves a real world issue.",
   },
   {
     phase: "Finale",
     title: "Symposium",
-    description: "Present your capstone project at the ML@P Symposium.",
+    description: "Present your project at the ML@Purdue Final Symposium.",
   },
 ];
 ---
@@ -51,37 +55,38 @@ const timelineItems = [
       <div class="mx-auto w-[90vw] max-w-6xl">
         <h2 class="orbitron font-bold text-6xl sm:text-8xl">Accelerator</h2>
         <p class="mt-6 max-w-2xl opacity-90 text-base sm:text-lg">
-          ML@Purdue's structured learning program for
-          <span class="font-bold">beginner and intermediate students</span> who want
-          to build a strong foundation in machine learning. Over 14 weeks you'll
-          go from fundamentals to building your own ML project, guided by experienced
-          mentors every step of the way.
+          ML@Purdue's program for those with
+          <span class="font-bold">beginner to intermediate ML skills</span>. As
+          a mentee, you'll be paired with a mentor in a group of 2&ndash;4 other
+          mentees to first understand the ML behind your project, then apply
+          that theory to solve a real world issue. The program lasts one
+          semester and asks for about 4 hours per week.
         </p>
 
         <div class="mt-10 flex flex-col items-start gap-3">
-          <button
-            type="button"
-            disabled
-            aria-disabled="true"
-            class="inline-flex cursor-not-allowed items-center gap-3 bg-white/20 px-8 py-4 font-semibold text-white/60 text-lg"
+          <a
+            href={applyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 bg-white px-8 py-4 font-semibold text-black text-lg transition-colors hover:!text-[#A45DF5]"
           >
-            Applications open soon
-          </button>
+            Apply to Accelerator
+          </a>
           <p class="opacity-70 text-sm">
-            Applications for the next cohort aren't open yet. Check back here
-            for the link.
+            Applications are open now &mdash; we highly recommend freshmen
+            apply!
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Program Structure: the 14-week timeline -->
+    <!-- Program Structure: one-semester timeline -->
     <section class="w-full bg-white py-20 text-black">
       <div class="mx-auto w-[90vw] max-w-6xl">
         <h2 class="font-bold text-4xl sm:text-6xl">Program Structure</h2>
         <p class="mt-6 max-w-2xl opacity-80 text-xl sm:text-2xl">
-          Small mentor groups of 3–5 students ensure personalized guidance
-          throughout the program.
+          One semester, ~4 hours per week, in a small group of 2&ndash;4 mentees
+          led by your mentor.
         </p>
 
         <div class="mt-10 grid gap-6 sm:grid-cols-3">
@@ -106,9 +111,9 @@ const timelineItems = [
         <h2 class="font-bold text-4xl sm:text-6xl">Who is Accelerator for?</h2>
 
         <p class="mt-8 max-w-4xl opacity-90 text-lg sm:text-xl">
-          ML@Purdue Accelerator is designed for those who are passionate about
-          ML, but don't have any prior experience. Accelerator alumni often join
-          a
+          Accelerator is built for students with beginner to intermediate ML
+          skills, and we highly recommend freshmen apply! Accelerator alumni
+          often join a
           <a
             href="/projects"
             class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
@@ -136,8 +141,8 @@ const timelineItems = [
             class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
             >Workshops</a
           >
-          are open to everyone and are a great way to get hands-on with ML while
-          you wait for applications to open.
+          are open to everyone and are a great way to get hands-on with ML alongside
+          the program.
         </p>
       </div>
     </section>
